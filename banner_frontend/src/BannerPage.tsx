@@ -23,7 +23,7 @@ const BannerPage: React.FC = () => {
 
     const fetchBanners = async () => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/banners");
+            const response = await fetch("api/banners");
             const data = await response.json();
             const bannersByPosition: Record<number, Banner[]> = {};
             data.forEach((banner: Banner) => {
@@ -46,7 +46,7 @@ const BannerPage: React.FC = () => {
 
     const incrementBannerView = async (bannerId: number) => {
         try {
-            await fetch(`http://127.0.0.1:8000/api/banners/${bannerId}/view`, {
+            await fetch(`api/banners/${bannerId}/view`, {
                 method: "POST",
             });
         } catch (error) {
@@ -56,7 +56,7 @@ const BannerPage: React.FC = () => {
 
     const incrementBannerClick = async (bannerId: number) => {
         try {
-            await fetch(`http://127.0.0.1:8000/api/banners/${bannerId}/click`, {
+            await fetch(`api/banners/${bannerId}/click`, {
                 method: "POST",
             });
         } catch (error) {
@@ -76,7 +76,7 @@ const BannerPage: React.FC = () => {
                 }
             }
         );
-    }, []);
+    }, [banners]);
 
     useEffect(() => {
         if (banners[2]) {
@@ -102,9 +102,9 @@ const BannerPage: React.FC = () => {
 
     const handleBannerClick = async (banner: Banner) => {
         if (banner.target_type === "new_window") {
-            window.open("http://127.0.0.1:8000/image/" + banner.url, "_blank");
+            window.open("image/" + banner.url, "_blank");
         } else {
-            window.location.href = "http://127.0.0.1:8000/image/" + banner.url;
+            window.location.href = "image/" + banner.url;
         }
 
         if (!clickedBanners.has(banner.id)) {
@@ -128,7 +128,7 @@ const BannerPage: React.FC = () => {
                             <div className="absolute inset-0 flex justify-center">
                                 <img
                                     src={
-                                        "http://127.0.0.1:8000/image/" +
+                                        "image/" +
                                         banner.url
                                     }
                                     className="w-full h-full cursor-pointer object-cover"
@@ -158,7 +158,7 @@ const BannerPage: React.FC = () => {
                             {randomSidebarBanner && (
                                 <img
                                     src={
-                                        "http://127.0.0.1:8000/image/" +
+                                        "image/" +
                                         randomSidebarBanner.url
                                     }
                                     className="w-full h-full object-cover cursor-pointer"
@@ -183,7 +183,7 @@ const BannerPage: React.FC = () => {
                                 <Paper className="absolute inset-0 flex items-center justify-center overflow-hidden">
                                     <img
                                         src={
-                                            "http://127.0.0.1:8000/image/" +
+                                            "image/" +
                                             banner.url
                                         }
                                         className="w-full h-full object-cover cursor-pointer"

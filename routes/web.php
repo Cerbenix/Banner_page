@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,7 @@ Route::post('/admin/banners', [BannerController::class, 'store'])->name('banners
 Route::get('/image/{url}', [BannerController::class, 'show'])->name('banners.show');
 
 Route::delete('/banners/{banner}', [BannerController::class, 'destroy'])->name('banners.destroy');
+
+Route::get('/{any}', function () {
+    return File::get(public_path('dist/index.html'));
+})->where('any', '.*');
