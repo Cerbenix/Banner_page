@@ -42,14 +42,6 @@ Features included:
 composer install
 ```
 
-```
-cd .\banner_frontend\
-```
-
-```
-npm install
-```
-
 #### Setup .env file
 
 ```
@@ -70,26 +62,17 @@ php artisan migrate
 
 #### Run project locally
 
-Run backend
-
 ```
 php artisan serv
 ```
+(This will run the current FE build)
 
+Main page
+```
+http://127.0.0.1:8000
+```
+
+Banner Managment page
 ```
 http://127.0.0.1:8000/admin/banners
-```
-
-Run frontend
-
-```
-cd .\banner_frontend\
-```
-
-```
-npm run dev
-```
-
-```
-http://localhost:5173/
 ```
