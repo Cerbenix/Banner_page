@@ -10,6 +10,10 @@ Banner managment and display project.
 
 ## Take a look
 
+Banner page - https://banner-page.000webhostapp.com/
+
+Banner managment page - https://banner-page.000webhostapp.com/admin/banners
+
 ### Banner managment page
 ![fe13227094bc841aac137a65d7f6c320](https://github.com/Cerbenix/Banner_page/assets/124684938/49e3581e-0d2e-4af5-a4ff-701214740be7)
 
